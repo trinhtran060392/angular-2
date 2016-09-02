@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { Pair } from './pair';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: 'app/dashboard/dashboard.html',
-  styleUrls: ['app/dashboard/dashboard.css']
+  selector: 'my-dashboard',
+  templateUrl: 'app/dashboard/dashboard.html'
 })
 export class DashboardComponent {
 	title = 'Leaning angular 2'; 
