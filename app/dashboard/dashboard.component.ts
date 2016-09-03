@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChange } from '@angular/core';
 
 import { Pair } from './pair';
 
@@ -7,34 +7,29 @@ import { Pair } from './pair';
   templateUrl: 'app/dashboard/dashboard.html'
 })
 export class DashboardComponent {
-	title = 'Leaning angular 2'; 
-	pair: Pair = {
-		name: "a",
-		value: 3,
-		min: 2,
-		max: 10
-	}
 	pairs: Pair[] = [
 		{
 			name: "a",
-			value: 3,
+			value: 9,
 			min: 2,
 			max: 10
 		},{
 			name: "b",
-			value: 3,
-			min: 2,
-			max: 10
+			value: 4,
+			min: 1,
+			max: 9
 		},{
 			name: "c",
-			value: 3,
-			min: 2,
+			value: 6,
+			min: 0,
 			max: 10
 		},{
 			name: "d",
-			value: 3,
-			min: 2,
+			value: 8,
+			min: 1,
 			max: 10
 		}
 	]
+
+
 }

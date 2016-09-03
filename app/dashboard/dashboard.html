@@ -1,69 +1,49 @@
-<div class="row">
+<div class="row dashboard-page">
 	<div class="col-sm-12">
-		
-		<h1>{{title}}</h1>
-
 		<main>
 			<div class="content-container">
 				<div class="slide_wrap dnd container">
 					<div class="row">
 						<div class="bosyu_wrap">
-							<div class="title">
-								<span class="material-icons">apps
-								</span><h3>値入力</h3><span class="material-icons size_change">more_vert</span>
-								<div class="size_change_dropdown"><p class="item-drop">
-									<a href="/C:/Users/NextStar/Desktop/dest/index.html?/graph?asdg=7&amp;bsg=3&amp;csdg=6&amp;dsdg=10">グラフ表示に切り替え</a></p>
+							<div class=" col-sm-12 title">
+								<div class="col-sm-6">
+									<span class="material-icons">apps
+									</span><h3>値入力</h3>
+								</div>
+								<div class="col-sm-6">
+									<span class="pull-right"><a routerLink="/graph">Graph</a></span>
 								</div>
 							</div>
 							<div class="col-left">
 								<div class="box-value">
-									<div class="box box-1"><p>asdg*bsg+csdg*dsdg+100 =181</p>
-									</div>
-									<div class="box box-2"><p>asdg*bsg+csdg*dsdg+200 =281</p></div>
-									<div class="box box-3"><p>asdg*bsg+csdg*dsdg+300 =381</p>
-									</div>
-									<div class="box box-4"><p>asdg*bsg+csdg*dsdg+400 =481</p>
-									</div>
-									<div class="box box-5"><p>asdg*bsg+csdg*dsdg+500 =581</p>
+									<div class="box box-1" *ngFor="let pair of pairs; let i = index">
+										<p>{{pairs[0].name}} * {{pairs[1].name}} + {{pairs[2].name}} * {{pairs[3].name}} +  {{(i + 1) * 100}} = 
+										{{pairs[0].value * pairs[1].value + pairs[2].value * pairs[3].value + (i + 1) * 100}}
+										</p>
 									</div>
 								</div>
 							</div>
 						<div class="col-right">
 							<div class="slider_pips">
-								<div class="item">
-									<div class="right"><label>min:2 max:10</label>
-									<input type="range" max="10" min="2">
-									</div>
-								</div>
-								<div class="item">
-									<div class="right"><label>min:1 max:8</label>
-									<input type="range" max="8" min="1">
-									</div>
-								</div>
-								<div class="item">
-									<div class="right"><label>min:2 max:9</label>
-										<input type="range" max="9" min="2">
-									</div>
-								</div>
-								<div class="item">
-									<div class="right"><label>min:0 max:10</label>
-										<input type="range" max="10" min="0">
+								<div class="item" *ngFor="let pair of pairs">
+									<div class="right"><label>min:{{pair.min}} max:{{pair.max}}</label>
+									<input type="range" max="{{pair.max}}" min="{{pair.min}}" [(ngModel)]="pair.value">
 									</div>
 								</div>
 							</div>
 							<div class="table-value">
 								<table>
 									<thead>
-										<tr><th>仮説名</th>
-										<td><input type="text"></td><td>
-										<input type="text"></td><td><input type="text"></td><td><input type="text"></td>
+										<tr>
+											<th>仮説名</th>
+											<td *ngFor="let pair of pairs"><input type="text" [(ngModel)]="pair.name"></td>
 										</tr>
 									</thead>
 									<tbody>
-										<tr><th>値</th><td>
-										<input type="number" max="10" min="2" class="number"></td><td><input type="number" max="8" min="1" class="number"></td><td>
-										<input type="number" max="9" min="2" class="number"></td><td>
-										<input type="number" max="10" min="0" class="number"></td></tr>
+										<tr>
+											<th>値</th>
+											<td *ngFor="let pair of pairs"><input type="number" max="{{pair.max}}" min="{{pair.min}}" class="number" [(ngModel)]="pair.value"></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>

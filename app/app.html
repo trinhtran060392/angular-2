@@ -1,0 +1,16 @@
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="logo">
+				<a  routerLink="/dashboard">
+					<h1>{{title}}</h1>
+				</a>
+			</div>
+		</div>
+	</div>
+</header>
+<nav>
+	<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+	<a routerLink="/graph">Graph</a>
+</nav>
+<router-outlet></router-outlet>
