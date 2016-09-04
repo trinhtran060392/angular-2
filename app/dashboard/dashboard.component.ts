@@ -34,14 +34,23 @@ export class DashboardComponent implements DoCheck {
 			max: 10
 		}
 	];
+
 	ngDoCheck() {
 		this.queryObj = this.buildParams(this.pairs);
 	}
+
 	gotoGraph() {
 		this.router.navigate([
 			'graph', this.queryObj
 		]);
 	}
+
+	edit(name: string, value: string) {
+		this.router.navigate([
+			'dashboard', name
+		]);
+	}
+
 	buildParams(pairs : Pair[]) {
 
 		var queryObj = {};

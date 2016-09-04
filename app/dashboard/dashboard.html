@@ -44,6 +44,10 @@
 											<th>値</th>
 											<td *ngFor="let pair of pairs"><input type="number" max="{{pair.max}}" min="{{pair.min}}" class="number" [(ngModel)]="pair.value"></td>
 										</tr>
+										<tr>
+											<th>Actions</th>
+											<td *ngFor="let pair of pairs"><a (click)="edit(pair.name, pair.value)">Edit</a></td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
