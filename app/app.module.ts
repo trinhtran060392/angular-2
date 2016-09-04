@@ -6,11 +6,8 @@ import { AppComponent }  from './app.component';
 
 import { routing } from './app.routing';
 
-import { DashboardModule } from './dashboard/dashboard.module';
-import { GraphModule } from './graph/graph.module';
-
 @NgModule({
-  imports: [ BrowserModule, FormsModule, DashboardModule, GraphModule, routing ],
+  imports: [ BrowserModule, FormsModule, routing ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]
 })

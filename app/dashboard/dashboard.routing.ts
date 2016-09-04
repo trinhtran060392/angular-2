@@ -6,9 +6,9 @@ import { DashboardDetailComponent } from './dashboard.detail.component';
 
 export const dashboardRoute: ModuleWithProviders = RouterModule.forChild([
   { 
-  	path: 'dashboard', component: DashboardComponent
+  	path: '', component: DashboardComponent
   },
   {
-  	path: 'dashboard/:id', component: DashboardDetailComponent
+  	path: ':id', component: DashboardDetailComponent
   }
 ]);

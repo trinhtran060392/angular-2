@@ -5,6 +5,7 @@ import { GraphComponent } from './graph.component';
 
 export const graphRoute: ModuleWithProviders = RouterModule.forChild([
   { 
-  	path: 'graph', component: GraphComponent
+  	path: '',
+  	component: GraphComponent
   }
 ]);

@@ -9,6 +9,14 @@ const appRoutes: Routes = [
 	    path: '',
 	    redirectTo: '/dashboard',
 	    pathMatch: 'full'
+	},
+	{
+		path: 'dashboard',
+		loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+	},
+	{ 
+		path: 'graph', 
+		loadChildren: 'app/graph/graph.module#GraphModule' 
 	}
 ]
 
