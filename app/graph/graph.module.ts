@@ -10,4 +10,3 @@ import { GraphComponent } from './graph.component';
 	exports: [ GraphComponent ]
 })
 export class GraphModule {}
-
