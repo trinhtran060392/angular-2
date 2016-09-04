@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { GraphComponent } from './graph.component';
 
-export const graphRoute: ModuleWithProviders = RouterModule.forChild([
+export const routing: ModuleWithProviders = RouterModule.forChild([
   { 
   	path: '',
   	component: GraphComponent

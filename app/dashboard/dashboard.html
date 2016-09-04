@@ -42,7 +42,7 @@
 									<tbody>
 										<tr>
 											<th>値</th>
-											<td *ngFor="let pair of pairs"><input type="number" max="{{pair.max}}" min="{{pair.min}}" class="number" [(ngModel)]="pair.value"></td>
+											<td *ngFor="let pair of pairs; let i = index"><input type="number" max="{{pair.max}}" min="{{pair.min}}" class="number" [(ngModel)]="pair.value" (dblclick)="select(i)"></td>
 										</tr>
 										<tr>
 											<th>Actions</th>
@@ -54,17 +54,20 @@
 							<div class="button-value"><button type="button" class="button2">保存</button>
 								<div class="choose-file">ロード<input type="file" class="upload"></div>
 							</div>
-							<div class="popup">
+							<div class="popup" [ngClass]="{'isShow' : editable}">
 								<div class="popup-content">
 									<div class="popup-container">
-										<h2>Edit Cell</h2><div class="box-content"><span>Name</span><p></p>
+										<h2>Edit Cell</h2><div class="box-content">
+										<span>Name</span>
+										<p>{{selected.name}}</p>
 										<span>Value</span>
 										<div class="box-input">
-											<input type="number" min="2" max="10">
+											<input type="number" min="2" max="10" value="{{selected.value}}" [(ngModel)]="selected.value">
 										</div></div>
 										<div class="box-button">
-											<button class="bt-cancel">Cancel
-											</button><button class="bt-ok">OK</button>
+											<button class="bt-cancel" (click)="editable=false">Cancel
+											</button>
+											<button class="bt-ok" (click)="set(selected.index)">OK</button>
 										</div>
 									</div>
 								</div>

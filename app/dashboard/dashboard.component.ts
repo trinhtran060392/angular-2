@@ -10,6 +10,10 @@ import { Pair } from './pair';
 export class DashboardComponent implements DoCheck {
 
 	constructor(private router: Router) {}
+
+	selected: any = {
+	};
+	editable: boolean = false;
 	queryObj = {};
 	@Input() pairs: Pair[] = [
 		{
@@ -49,6 +53,20 @@ export class DashboardComponent implements DoCheck {
 		this.router.navigate([
 			'dashboard', name
 		]);
+	}
+
+	select(i: any) {
+		this.editable = true;
+		this.selected = {
+			name: this.pairs[i].name,
+			value: this.pairs[i].value,
+			index: i
+		}
+	}
+
+	set(i: any) {
+		this.pairs[i].value = this.selected.value;
+		this.editable = false;
 	}
 
 	buildParams(pairs : Pair[]) {
