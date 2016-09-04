@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common/src/directives/core_directives';
-
-import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'my-graph',
@@ -9,5 +7,11 @@ import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
 })
 export class GraphComponent {
 
-	
+	constructor(private route: ActivatedRoute, private router: Router) {
+	}
+	ngOnInit() {
+		this.route.params.subscribe(params => {
+			console.log(params);
+		});
+	}
 }

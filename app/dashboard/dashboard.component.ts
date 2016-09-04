@@ -1,4 +1,5 @@
 import { Component, OnChanges, SimpleChange, Input, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Pair } from './pair';
 
@@ -7,7 +8,9 @@ import { Pair } from './pair';
   templateUrl: 'app/dashboard/dashboard.html'
 })
 export class DashboardComponent implements DoCheck {
-	params : string = "";
+
+	constructor(private router: Router) {}
+	queryObj = {};
 	@Input() pairs: Pair[] = [
 		{
 			name: "a",
@@ -32,23 +35,22 @@ export class DashboardComponent implements DoCheck {
 		}
 	];
 	ngDoCheck() {
-		this.params = this.buildParams(this.pairs);
-		console.log(this.params);
+		this.queryObj = this.buildParams(this.pairs);
 	}
-
+	gotoGraph() {
+		this.router.navigate([
+			'graph', this.queryObj
+		]);
+	}
 	buildParams(pairs : Pair[]) {
 
-		let params : string = "";
+		var queryObj = {};
 		pairs.forEach(function (obj, i) {
 			let name = obj.name;
 			let value = obj.value;
-
-			let tmp = name + "=" + value;
-			params += tmp;
-			if (i < (pairs.length - 1)) {
-				params += "&";
-			}
+			queryObj[name] = value
+			
 		});
-		return params;
+		return queryObj;
 	}
 }
