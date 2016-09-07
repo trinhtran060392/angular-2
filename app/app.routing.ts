@@ -1,9 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GraphComponent } from './graph/graph.component';
-
 const appRoutes: Routes = [
 	{
 	    path: '',
@@ -17,6 +14,10 @@ const appRoutes: Routes = [
 	{ 
 		path: 'graph', 
 		loadChildren: 'app/graph/graph.module#GraphModule' 
+	},
+	{
+		path: 'management',
+		loadChildren: 'app/management/management.module#ManagementModule'
 	}
 ]
 
