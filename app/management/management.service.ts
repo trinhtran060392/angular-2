@@ -15,7 +15,7 @@ export class ManagementService {
 		return this.http.get(this.api).map(this.extractData);
 	}
 	private extractData(res: Response) {
-		let data = JSON.parse(res._body);
+		let data = res.status;
 	    return data || { };
 	}
 
