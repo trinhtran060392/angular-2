@@ -1,24 +1,21 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {AppComponent} from "./app.component";
+import { Ng2StateDeclaration, loadNgModule } from "ui-router-ng2";
 
-const appRoutes: Routes = [
-	{
-	    path: '',
-	    redirectTo: '/dashboard',
-	    pathMatch: 'full'
-	},
-	{
-		path: 'dashboard',
-		loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+export let MAIN_STATES: Ng2StateDeclaration[] = [
+	{ name: 'app', component: AppComponent },
+  {
+    name: 'app.dashboard',
+    url: '/dashboard',
+    lazyLoad: loadNgModule('app/dashboard/dashboard.module')
 	},
 	{ 
-		path: 'graph', 
-		loadChildren: 'app/graph/graph.module#GraphModule' 
+		name: 'app.graph', 
+		url: '/graph',
+		lazyLoad: loadNgModule('app/graph/graph.module')
 	},
 	{
-		path: 'management',
-		loadChildren: 'app/management/management.module#ManagementModule'
+		name: 'app.management',
+		url: '/management',
+		lazyLoad: loadNgModule('app/management/management.module')
 	}
-]
-
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+];

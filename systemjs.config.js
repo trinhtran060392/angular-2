@@ -23,6 +23,7 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       'ng2-charts': 'npm:ng2-charts',
+      'ui-router-ng2':              'node_modules/ui-router-ng2/_bundles/ui-router-ng2.js',
 
       // other libraries
       'rxjs':                       'npm:rxjs',
@@ -45,6 +46,7 @@
         main: 'ng2-charts.js',
         defaultExtension: 'js'
       }
-    }
+    },
+    meta: { "ui-router-ng2": { format: "cjs" } }
   });
 })(this);
