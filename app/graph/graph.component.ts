@@ -13,16 +13,7 @@ export class GraphComponent {
 	public dataset:string[] = [];
 
 	ngOnInit() {
-		this.route.params.subscribe(params => {
-			for (let prop in params) {
-				if (!params.hasOwnProperty(prop)) {
-					continue;
-				}
-				this.labels.push(prop);
-				console.log(params[prop]);
-				this.dataset.push(params[prop]);
-			}
-		});
+		console.log(1);
 	}
 	public barChartOptions:any = {
 	    scales: {

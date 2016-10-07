@@ -4,13 +4,15 @@ import { FormsModule }        from '@angular/forms';
 
 import { ChartsModule } from 'ng2-charts';
 
-import { routing } from './graph.routing';
+import {UIRouterModule} from "ui-router-ng2";
+import { GRAPH_STATES } from './graph.routing';
 
 import { GraphComponent } from './graph.component';
+import { GraphFooterComponent } from './graph.footer.component';
 
 @NgModule({
-	imports:      [ CommonModule, FormsModule, ChartsModule, routing ],
-	declarations: [ GraphComponent ],
-	exports: [ GraphComponent ]
+	imports:      [ CommonModule, FormsModule, ChartsModule, UIRouterModule.forChild({states: GRAPH_STATES}) ],
+	declarations: [ GraphComponent, GraphFooterComponent ],
+	exports: [ GraphComponent, GraphFooterComponent ]
 })
-export class GraphModule {}
+export default class GraphModule {}

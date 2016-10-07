@@ -2,7 +2,9 @@ import {AppComponent} from "./app.component";
 import { Ng2StateDeclaration, loadNgModule } from "ui-router-ng2";
 
 export let MAIN_STATES: Ng2StateDeclaration[] = [
-	{ name: 'app', component: AppComponent },
+	{ 
+		name: 'app', component: AppComponent 
+	},
   {
     name: 'app.dashboard',
     url: '/dashboard',

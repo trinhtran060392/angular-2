@@ -1,11 +1,14 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
 import { GraphComponent } from './graph.component';
+import { Ng2StateDeclaration } from "ui-router-ng2";
 
-export const routing: ModuleWithProviders = RouterModule.forChild([
-  { 
-  	path: '',
-  	component: GraphComponent
-  }
-]);
+import { GraphFooterComponent } from './graph.footer.component';
+export let GRAPH_STATES: Ng2StateDeclaration[] = [
+    {
+      name: 'app.graph',
+      url: '/graph?params',
+      views: {
+        $default: {component: GraphComponent},
+        footer: {component: GraphFooterComponent}
+      }
+    }
+];

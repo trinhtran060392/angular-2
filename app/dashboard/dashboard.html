@@ -14,7 +14,7 @@
 									<a routerLink="/management" routerLinkActive="active">Data Management</a>
 								</div>
 								<div class="col-sm-3">
-									<span class="pull-right"><a (click)="gotoGraph()">Graph</a></span>
+									<span class="pull-right"><a uiSref="app.graph" [uiParams]="queryObj">Graph</a></span>
 								</div>
 							</div>
 							<div class="col-left">
@@ -49,7 +49,7 @@
 										</tr>
 										<tr>
 											<th>Actions</th>
-											<td *ngFor="let pair of pairs"><a (click)="edit(pair.name, pair.value)">Edit</a></td>
+											<td *ngFor="let pair of pairs"><a uiSref="app.dashboard.detail" [uiParams]="{id: pair.value}">Edit</a></td>
 										</tr>
 									</tbody>
 								</table>
