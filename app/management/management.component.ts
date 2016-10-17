@@ -18,16 +18,8 @@ export class ManagementComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.managementService.getAll().subscribe(dataset => {
-			this.dataset = dataset
-			console.log(dataset);
-		});
 	}
 
 	add(name: any) {
-		this.managementService.add(name).subscribe(response => {
-			console.log(response);
-			this.dataset.push({name: name});
-		});
 	}
 }
